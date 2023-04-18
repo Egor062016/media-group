@@ -6,14 +6,7 @@ import random
 bot = Bot(token="5866449991:AAGPn8v7gem8lCmfVAibW3vAjaaAW1mGG3c")
 dp = Dispatcher(bot)
 
-photo_delivered: set[int] = set()
-
-
 async def say_thanks(user: types.User):
-    if user.id in photo_delivered:
-        return
-    photo_delivered.add(user.id)
-
     await bot.send_message(user.id, "Спасибо, поехали дальше...")
 
 
