@@ -20,8 +20,6 @@ async def say_thanks(user: types.User):
 async def photo_handler(message: types.Message):
     await say_thanks(message.from_user)
     photo = message.photo.pop()
-    await photo.download(f'download/{str(random.randint(1, 99))}.jpg')
-
 
 dp.register_message_handler(photo_handler, content_types=['photo'])
 executor.start_polling(dp, skip_updates=True)
